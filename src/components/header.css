@@ -1,0 +1,329 @@
+
+:root {
+  --navbar-bg: rgba(13, 10, 20, 0.85);
+  --navbar-blur: blur(12px);
+  --navbar-border: rgba(168, 85, 247, 0.15);
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== NAVBAR CONTAINER ===== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1rem 0;
+  background: transparent;
+  transition: var(--transition-smooth);
+}
+
+.navbar-scrolled {
+  background: var(--navbar-bg);
+  border-bottom: 1px solid var(--navbar-border);
+  padding: 0.6rem 0;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+/* ===== LOGO STYLES ===== */
+.nav-logo {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  font-family: 'Syne', sans-serif;
+  transition: var(--transition-smooth);
+  position: relative;
+}
+
+.nav-logo:hover {
+  transform: translateY(-2px);
+}
+
+.logo-first {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #fff, var(--purple-glow));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.logo-last {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+/* ===== DESKTOP NAVIGATION LINKS ===== */
+.nav-links {
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link-btn {
+  position: relative;
+  background: transparent;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  overflow: hidden;
+}
+
+.nav-link-text {
+  position: relative;
+  z-index: 1;
+}
+
+.nav-link-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--purple-bright), var(--pink-accent));
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.nav-link-btn:hover {
+  color: var(--text-primary);
+}
+
+.nav-link-btn:hover .nav-link-indicator {
+  width: 70%;
+}
+
+.nav-link-btn.active {
+  color: var(--purple-glow);
+}
+
+.nav-link-btn.active .nav-link-indicator {
+  width: 80%;
+  height: 2.5px;
+  box-shadow: 0 0 8px var(--purple-bright);
+}
+
+/* ===== DESKTOP CTA BUTTON ===== */
+.desktop-cta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--purple-mid), var(--purple-bright));
+  border: none;
+  padding: 10px 24px;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+  font-family: 'DM Sans', sans-serif;
+}
+
+.desktop-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.5);
+  gap: 12px;
+}
+
+.cta-icon {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease;
+}
+
+.desktop-cta:hover .cta-icon {
+  transform: translateX(4px);
+}
+
+/* ===== MOBILE MENU TOGGLE ===== */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1002;
+}
+
+.hamburger-line {
+  width: 100%;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle.active .hamburger-line:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+
+.mobile-menu-toggle.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle.active .hamburger-line:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+/* ===== MOBILE OVERLAY ===== */
+.mobile-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(13, 10, 20, 0.95);
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.mobile-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ===== RESPONSIVE BREAKPOINTS ===== */
+@media (max-width: 968px) {
+  .nav-container {
+    padding: 0 24px;
+  }
+
+  .desktop-cta {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    background: var(--bg-card);
+    border-left: 1px solid var(--border);
+    transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
+    padding: 2rem;
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .nav-links.mobile-open {
+    right: 0;
+  }
+
+  .nav-link-btn {
+    font-size: 1.2rem;
+    padding: 0.8rem 1.5rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-link-indicator {
+    display: none;
+  }
+
+  .nav-link-btn.active {
+    background: rgba(168, 85, 247, 0.15);
+    border-radius: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-scrolled {
+    padding: 0.5rem 0;
+  }
+
+  .nav-container {
+    padding: 0 16px;
+  }
+
+  .logo-first {
+    font-size: 0.95rem;
+  }
+
+  .logo-last {
+    font-size: 0.65rem;
+  }
+
+  .nav-links {
+    width: 100%;
+    right: -100%;
+  }
+}
+
+/* ===== ANIMATION FOR SCROLL ===== */
+@keyframes navFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.navbar-scrolled {
+  animation: navFadeIn 0.4s ease forwards;
+}
+
+/* ===== HOVER EFFECT FOR LOGO ===== */
+.nav-logo::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--purple-bright), var(--pink-accent));
+  transition: width 0.3s ease;
+}
+
+.nav-logo:hover::after {
+  width: 100%;
+}
+
+/* ===== ACCESSIBILITY FOCUS ===== */
+.nav-link-btn:focus-visible,
+.desktop-cta:focus-visible,
+.mobile-menu-toggle:focus-visible {
+  outline: 2px solid var(--purple-bright);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
