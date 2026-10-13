@@ -1,0 +1,57 @@
+/* scroll.css
+   Import AFTER upgrades.css (App.jsx already does). */
+
+/* ═════════ One long scrolling page ═════════
+   Force normal window scrolling, in case styles.css locks the height
+   or hides overflow on html / body / #root / the wrapper. */
+html {
+  scroll-behavior: smooth;
+  height: auto !important;
+  overflow-y: auto !important;
+  overflow-x: clip;
+}
+body,
+#root {
+  height: auto !important;
+  min-height: 100%;
+  overflow-y: visible !important;
+  overflow-x: clip;
+}
+.portfolio-wrapper {
+  position: relative;
+  height: auto !important;
+  min-height: 100vh;
+  overflow-y: visible !important;
+  overflow-x: clip; /* clip (not hidden) so the window keeps scrolling */
+}
+
+/* Interactive canvas sits behind everything */
+.bg-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Content above the canvas */
+.page-content {
+  position: relative;
+  z-index: 1;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+/* One block per section of the long page */
+.page-section {
+  position: relative;
+  height: auto;
+}
+
+/* Blobs move with the pointer via the `translate` property */
+.blob { will-change: translate, transform; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
