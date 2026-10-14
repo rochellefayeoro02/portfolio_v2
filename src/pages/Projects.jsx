@@ -14,7 +14,7 @@ const PROJECTS = [
     desc: 'An app that notifies you in real time event which can easily track your activitiess.',
     theme: 'theme-indigo',
 image: devify,
-    fit: 'contain', // logo: show whole image instead of cropping
+    fit: 'contain', 
     link: 'https://www.figma.com/proto/RcEAgcitjEzZQlW6RD0miK/DEVIFY?node-id=499-726&p=f&m=draw&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=499%3A712&page-id=440%3A281&t=R0XNP1WNOUqqwGrM-1',
   },
   {
@@ -23,7 +23,7 @@ image: devify,
     name: 'LetsGo',
     desc: 'Real time activity tracking app to join different activities base on your interest and location.',
     theme: 'theme-blue',
-    image: letsgo, // ← public/projects/letsgo.png
+    image: letsgo, 
     link: 'https://www.figma.com/proto/BZBrT1mz1qnNmV2bs9eoQO/Let-s-GO?page-id=243%3A640&node-id=243-641&p=f&viewport=256%2C99%2C0.03&t=JXHfD3RKYXBdXGi6-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=243%3A641',
   },
   {
@@ -140,7 +140,6 @@ function ProjectCard({ project, index }) {
           <span className="project-emoji">{project.emoji || project.name.charAt(0)}</span>
         )}
         <div className="project-overlay">
-          <span className="overlay-icon">{hasLink ? '↗' : '✦'}</span>
           <span className="overlay-text">{hasLink ? 'View Live' : 'Coming soon'}</span>
         </div>
       </div>
