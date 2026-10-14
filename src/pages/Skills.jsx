@@ -117,10 +117,8 @@ export default function Skills() {
         Techstack and <span className="highlight">tools</span>
       </h2>
       <p className="section-sub">
-        ### Tools I'm Learning & Using
-
-Tools I currently use in my projects while continuously learning, exploring new technologies,
- and developing my skills in web development.
+      Tools I currently use in my projects while continuously learning, exploring new technologies,
+      and developing my skills in web development.
       </p>
 
       <div className="skills-marquee">
