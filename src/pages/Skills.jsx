@@ -2,8 +2,6 @@
 import { useRef, useState } from 'react';
 import './styles.css';
 
-// Logo images come from the Devicon CDN (Cisco from Simple Icons).
-// To use your own file instead, put it in public/ and write '/logos/name.svg'.
 const DEVICON = 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons';
 const dev = (name) => `${DEVICON}/${name}/${name}-original.svg`;
 
@@ -17,7 +15,6 @@ const ROW_ONE = [
   { name: 'Git',          icon: dev('git') },
   { name: 'GitHub',       icon: dev('github') },
    { name: 'Php',       icon: dev('php') },
-  { name: 'linux',    icon: dev('linux') },
 ];
 
 const ROW_TWO = [
@@ -117,10 +114,13 @@ export default function Skills() {
     <section className="skills-section">
       <div className="section-tag">Skills & Tools</div>
       <h2 className="section-title">
-        Tech<span className="highlight">stack</span>
+        Techstack and <span className="highlight">tools</span>
       </h2>
       <p className="section-sub">
-        From full‑stack development to design and networking — tools I use daily to build robust digital solutions.
+        ### Tools I'm Learning & Using
+
+Tools I currently use in my projects while continuously learning, exploring new technologies,
+ and developing my skills in web development.
       </p>
 
       <div className="skills-marquee">
@@ -128,7 +128,7 @@ export default function Skills() {
         <MarqueeRow items={ROW_TWO} duration={58} lit={lit} onToggle={toggle} />
       </div>
 
-      <p className="skills-hint">Hover or touch to pause. Click a logo to see its colors.</p>
+      <p className="skills-hint">Click a logo to see its colors.</p>
     </section>
   );
 }
