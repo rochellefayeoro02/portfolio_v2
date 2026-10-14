@@ -123,10 +123,7 @@ export default function Home({ setActivePage }) {
                   'https://ui-avatars.com/api/?name=Rochelle+Oro&background=6d28d9&color=fff&size=400';
               }}
             />
-            <div className="avatar-overlay">
-              <span className="avatar-emoji-overlay"></span>
-              <span className="avatar-text-overlay">View Portfolio</span>
-            </div>
+           
           </div>
         </div>
       </div>

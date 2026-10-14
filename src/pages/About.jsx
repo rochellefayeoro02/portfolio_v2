@@ -10,16 +10,12 @@ const PARAGRAPHS = [
 ];
 const QUOTE = "Design is not just how it looks — it's how it works.";
 
-/* ---------- Code scramble ----------
-   Letters that haven't been "decoded" yet keep switching between random
-   letters and symbols. They lock into the real sentence one by one. */
+
 const CODE_CHARS = '01{}[]()<>/=+-*&|#$%;:_~^?!@ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 const SCRAMBLE_MS = 55; // how fast the symbols switch
 const randomGlyph = () => CODE_CHARS[Math.floor(Math.random() * CODE_CHARS.length)];
 
-/* ---------- Robot rhythm ----------
-   Every key press takes exactly the same time (a machine doesn't hesitate),
-   with one small mechanical "carriage return" pause after sentence ends. */
+
 function buildTimeline(text, cps) {
   const step = 1000 / cps;
   const times = [];
@@ -32,8 +28,6 @@ function buildTimeline(text, cps) {
   return times;
 }
 
-/* One rAF loop (not one timer per letter) so it stays smooth even when
-   the browser is busy. Calls onDone once when finished. */
 function useRobotTyping(text, active, cps, onDone) {
   const [count, setCount] = useState(0);
   const doneRef = useRef(onDone);

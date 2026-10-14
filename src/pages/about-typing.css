@@ -1,5 +1,4 @@
-/* abouttyping.css — code-scramble typing
-   Put it next to About.jsx (imported there as ./abouttyping.css). Colors can be changed with the two variables. */
+
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
 
 .about-section {
@@ -7,17 +6,17 @@
   --robo-font: 'Space Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
 }
 
-/* ---------- Big, readable robot text ---------- */
+
 .robo {
   display: block;
   max-width: 62ch;
-  margin: 0 auto; /* section is centered, so center the text block too */
+  margin: 0 auto; 
   font-family: var(--robo-font);
   font-size: clamp(1.15rem, 1rem + 0.9vw, 1.6rem);
   line-height: 1.7;
   letter-spacing: 0.01em;
   word-spacing: 0.1em;
-  font-weight: 700; /* bold terminal look */
+  font-weight: 700; 
 }
 .robo-big {
   font-size: clamp(1.4rem, 1.1rem + 1.6vw, 2.3rem);
